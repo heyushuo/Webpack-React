@@ -33,27 +33,53 @@ module.exports = {
         }
     },
     module: {
-        loaders: [
-        	 //3 编译es6和编译jsx和js
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
-            },
-            //配置图片
+        rules: [
+	        	 //3 编译es6和编译jsx和js
+	            {
+	                test: /\.(js|jsx)$/,
+	                exclude: /node_modules/,
+	                use: {
+	                    loader: "babel-loader"
+	                }
+	            },
+				//配置css
+				{
+			        test: /\.css$/,
+			         use: ExtractTextPlugin.extract({
+			           fallback: "style-loader",
+			           use: [
+			           	 {loader: 'css-loader',options: {importLoaders: 1,minimize:true}},
+			         	 {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")()]}}
+			           ]
+			        })
+		      	},
+				//配置scss  执行顺序是从右往走的这个顺序是不能改变的
+				{
+			       test: /\.scss$/,
+			        use: ExtractTextPlugin.extract({
+			           fallback: "style-loader",
+			           use: [
+			           	 {loader: 'css-loader',options: {importLoaders: 2,minimize:true}},
+				         {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")()]}},
+				         'sass-loader'
+			           ]
+			        })
+			 },
+			//配置图片必须使用hash
 			{
-				test:/\.(jpg|png|gif|jpeg|bmp)$/,
-				use:{
-					loader:'url-loader',
-					options: {
-						limit: 8192,    //限制图片的大小
-					 	name:'img/[name].[chunkhash:8].[ext]'
-					}
-				}
+				test:/\.(jpg|png|gif|jpeg)$/,
+				use:[
+					{loader:'url-loader',options: {limit: 8192,name:'img/[name].[hash:8].[ext]'}}
+				]
+			},
+			//配置字体图标  这里最好使用file-loader
+			{
+				test: /\.(png|woff|woff2|svg|ttf|eot)$/,
+				use:[
+					{loader:'file-loader',options:{limit: 8192,name:'fonts/[name].[hash:8].[ext]'}}// fonts/打包到下的fonts文件夹}
+				]
 			}
-        ]
+		]
     },
  
     // html 模板插件
@@ -77,7 +103,12 @@ module.exports = {
                 comments:false  //默认值
             }
         }),
-    
+    	//提取css文件
+    	new ExtractTextPlugin({
+    		filename:'css/[name].[chunkhash:8].css',
+//          disable:false,
+//          allChunks:true
+    	}),
     	// 提供第三方依赖的代码
 	    new webpack.optimize.CommonsChunkPlugin({
 	      name: 'vendor',

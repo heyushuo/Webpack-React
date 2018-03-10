@@ -71,7 +71,7 @@ module.exports = {
 		           fallback: "style-loader",
 		           use: ["css-loader",'postcss']
 		        })
-	      	}
+	      },
 			//配置scss  执行顺序是从右往走的这个顺序是不能改变的
 			{
 		       test: /\.scss$/,
