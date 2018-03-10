@@ -10,7 +10,7 @@
 	//css的loader转换器和style的loader转换器
 	5.npm install --save-dev css-loader style-loader
 	////因为sass-loader依赖于node-sass，所以还要安装node-sass
-	6.npm install --save-dev sass-loader node-sass postcss-loader autoprefixer
+	6.npm install --save-dev sass-loader node-sass postcss-loader autoprefixer postcss
 	//模板插件
 	8.npm install --save-dev html-webpack-plugin
 	//js和css分开打包
