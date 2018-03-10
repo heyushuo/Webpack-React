@@ -6,7 +6,7 @@ module.exports = {
     entry:'./src/index.jsx',
     output: {
     	path: path.resolve(__dirname, 'dist'),//打包后文件的输出路径
-    	filename: 'bundle.js'//输出文件名字
+    	filename: 'bundle.js',//输出文件名字
   	},
   	 devServer:{
         // contentBase:'./dist',  contentBase可以不用指定 因为用了这个HtmlWebpackPlugin插件

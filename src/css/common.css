@@ -1,7 +1,12 @@
 .box{
-	flex:1;
+	display: flex;
 	background: red;
 	color: black;
+	box-sizing: border-box;
+	transform: rotateX("20px");
+	span{
+		flex: 1;
+	}
 }
 h1{
 	background: yellow;

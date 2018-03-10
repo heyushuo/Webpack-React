@@ -47,9 +47,10 @@ module.exports = {
 			        test: /\.css$/,
 			         use: ExtractTextPlugin.extract({
 			           fallback: "style-loader",
+			           publicPath:'../',
 			           use: [
-			           	 {loader: 'css-loader',options: {importLoaders: 1,minimize:true}},
-			         	 {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")()]}}
+			           	 {loader: 'css-loader',options: {importLoaders: 1}},
+			         	 {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")({broswer:"last 100 versions"})]}}
 			           ]
 			        })
 		      	},
@@ -58,9 +59,10 @@ module.exports = {
 			       test: /\.scss$/,
 			        use: ExtractTextPlugin.extract({
 			           fallback: "style-loader",
+			           publicPath:'../',
 			           use: [
 			           	 {loader: 'css-loader',options: {importLoaders: 2,minimize:true}},
-				         {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")()]}},
+				         {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")({broswer:"last 100 versions"})]}},
 				         'sass-loader'
 			           ]
 			        })
@@ -76,7 +78,7 @@ module.exports = {
 			{
 				test: /\.(png|woff|woff2|svg|ttf|eot)$/,
 				use:[
-					{loader:'file-loader',options:{limit: 8192,name:'fonts/[name].[hash:8].[ext]'}}// fonts/打包到下的fonts文件夹}
+					{loader:'file-loader',options:{name:'fonts/[name].[hash:8].[ext]'}}// fonts/打包到下的fonts文件夹}
 				]
 			}
 		]
