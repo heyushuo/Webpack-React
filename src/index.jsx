@@ -5,6 +5,7 @@ import "./css/common.scss"
 import "./css/font.css"
 import "./css/a/hh.css"
 import Haha from './haha.js'
+import Yy from './com/yy.js'
 export default class Root extends React.Component{
 	render(){
 		return (
@@ -16,6 +17,7 @@ export default class Root extends React.Component{
 				</div>
 				<h1>迎来到我配置的w11ebpack-react,我的名字是12312</h1>
 				<img src={require("./img/kebi.jpg")} /> 
+				<Yy></Yy>
 			</div>
 		)
 	}
