@@ -61,7 +61,7 @@ module.exports = {
 		        use: [ 
 		        'style-loader',
 		         {loader: 'css-loader'},
-		         {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")()]}}
+		         {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")("last 100 versions")]}}
 		        ]
 	      	},
 			//配置scss  执行顺序是从右往走的这个顺序是不能改变的
@@ -71,7 +71,7 @@ module.exports = {
 		       use: [ 
 		       'style-loader',
 		         {loader: 'css-loader',options: {importLoaders: 2}},
-		         {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")()]}},
+		         {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")("last 100 versions")]}},
 		         'sass-loader'
 				]
 		    }

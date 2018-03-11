@@ -50,7 +50,7 @@ module.exports = {
 			           publicPath:'../',
 			           use: [
 			           	 {loader: 'css-loader',options: {importLoaders: 1}},
-			         	 {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")({broswer:"last 100 versions"})]}}
+			         	 {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")("last 100 versions")]}}
 			           ]
 			        })
 		      	},
@@ -62,7 +62,7 @@ module.exports = {
 			           publicPath:'../',
 			           use: [
 			           	 {loader: 'css-loader',options: {importLoaders: 2,minimize:true}},
-				         {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")({broswer:"last 100 versions"})]}},
+				         {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")("last 100 versions")]}},
 				         'sass-loader'
 			           ]
 			        })
@@ -76,7 +76,7 @@ module.exports = {
 			},
 			//配置字体图标  这里最好使用file-loader
 			{
-				test: /\.(png|woff|woff2|svg|ttf|eot)$/,
+				test: /\.(woff|woff2|svg|ttf|eot)$/,
 				use:[
 					{loader:'file-loader',options:{name:'fonts/[name].[hash:8].[ext]'}}// fonts/打包到下的fonts文件夹}
 				]
@@ -107,7 +107,7 @@ module.exports = {
         }),
     	//提取css文件
     	new ExtractTextPlugin({
-    		filename:'css/[name].[chunkhash:8].css',
+    		filename:'css/[name].[contenthash:8].css',
 //          disable:false,
 //          allChunks:true
     	}),

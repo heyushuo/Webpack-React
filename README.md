@@ -1,4 +1,9 @@
-    1.npm init -y  //创建package.json
+## **webpack.config.js** 为开发环境的配置 ##
+## **webpack.dev.js**   打包时用的配置即为生产环境 ##
+
+
+
+	1.npm init -y  //创建package.json
 	//webpack4.0以上需要下载 npm install webpack-cli --save-dev
 	2.npm install webpack webpack-dev-server --save-dev
 	//js的loader加载器还有es6转es5，如果react开发需要下载 babel-preset-react
