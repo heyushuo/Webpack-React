@@ -12,7 +12,7 @@
 	
 	
 ## 具体介绍请看博客： ##
-[手把手教你用webpack3搭建react项目(开发环境和生产环境)(一)](http://http://www.cnblogs.com/heyushuo/p/8552983.html)
+[手把手教你用webpack3搭建react项目(开发环境和生产环境)(一)](http://www.cnblogs.com/heyushuo/p/8552983.html)
 ----------
 [手把手教你用webpack3搭建react项目(开发环境和生产环境)(二)](http://www.cnblogs.com/heyushuo/p/8558228.html)
 ----------
