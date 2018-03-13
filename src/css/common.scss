@@ -1,8 +1,12 @@
 .box{
-    width: 200px;
-    height: 30px;
-    border: 1px solid black;
+    width: 800px;
+    margin: 0 auto;
+     text-align: center;
     span{
         color: #fff;
+    }
+    img{
+        width: 200px;
+        height: 200px;
     }
 }

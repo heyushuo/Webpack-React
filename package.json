@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot --colors --inline --open",
-    "build": "rimraf dist && webpack --config webpack.dev.js",
-    "clean": "rimraf dist"
+    "build": "rimraf dist && webpack --config webpack.dev.js"
   },
   "keywords": [],
   "author": "",

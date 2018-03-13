@@ -1,7 +1,18 @@
-## **webpack.config.js** 为开发环境的配置 ##
-## **webpack.dev.js**   打包时用的配置即为生产环境 ##
+> webpack.config.js 为开发环境的配置
+
+----------
+
+> webpack.dev.js   打包时用的配置即为生产环境
+
+	
 
 
+	npm start  //开启项目
+	npm run build //打包项目
+	
+	
+具体介绍请看博客：[点击查看](http://www.cnblogs.com/heyushuo/p/8552983.html)
+----------
 
 	1.npm init -y  //创建package.json
 	//webpack4.0以上需要下载 npm install webpack-cli --save-dev

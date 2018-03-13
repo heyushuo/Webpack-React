@@ -16,19 +16,18 @@ module.exports = {
 	    filename: "js/[name].[chunkhash:8].js" //[chunkhash:8]这个是为了添加md5后缀
   	},
   	 devServer:{
-        // contentBase:'./dist',  contentBase可以不用指定 因为用了这个HtmlWebpackPlugin插件
-//      contentBase:path.join(__dirname, "dist"),
-        inline: true,
+        contentBase:'./dist',  //contentBase可以不用指定 因为用了这个HtmlWebpackPlugin插件
+		historyApiFallback: true, //不跳转，在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，任意的 404 响应都可能需要被替代为 index.html
+        inline: true, //实时刷新
         port:8000,
         // host: "http://localhost",
-        //9.1配置后台接口
         proxy:{//代理属性
             //路由映射
             "/api":{
                 target:'http://localhost:9000/',
                 pathRewrite: {"^/api":""}
                	/* 因为在 ajax 的 url 中加了前缀 '/api'，而原本的接口是没有这个前缀的
-				所以需要通过 pathRewrite 来重写地址，将前缀 '/api' 转为 '/'*/
+				所以需要通过 pathRewrite 来重写地址，将前缀 '/api' 转为 '' */
             }
         }
     },

@@ -1,4 +1,4 @@
-var path = require('path');
+var path = require('path');//node提供的一块方法
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -9,13 +9,10 @@ module.exports = {
     	filename: 'bundle.js',//输出文件名字
   	},
   	 devServer:{
-        // contentBase:'./dist',  contentBase可以不用指定 因为用了这个HtmlWebpackPlugin插件
-//      contentBase:path.join(__dirname, "dist"),
-        port:8000,
-        // host: "http://localhost",
-        //9.1配置后台接口
+//      contentBase:'./dist',  contentBase可以不用指定 因为用了这个HtmlWebpackPlugin插件
+        historyApiFallback: true, //不跳转，在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，任意的 404 响应都可能需要被替代为 index.html
+        inline: true, //实时刷新
         proxy:{//代理属性
-            //路由映射
             "/api":{
                 target:'http://localhost:9000/',
                 pathRewrite: {"^/api":""}
@@ -57,17 +54,15 @@ module.exports = {
 			//配置css
 			{
 		        test: /\.css$/,
-		        exclude: /node_modules/,
 		        use: [ 
 		        'style-loader',
-		         {loader: 'css-loader'},
+		         {loader: 'css-loader',options: {importLoaders: 1}},
 		         {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")("last 100 versions")]}}
 		        ]
 	      	},
 			//配置scss  执行顺序是从右往走的这个顺序是不能改变的
 			{
 		       test: /\.scss$/,
-		       exclude: /node_modules/,
 		       use: [ 
 		       'style-loader',
 		         {loader: 'css-loader',options: {importLoaders: 2}},
