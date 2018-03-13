@@ -1,36 +1,5 @@
 /*! Copyright by https://github.com/heyushuo. */
-.box{
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: flex;
-	background: red;
-	color: black;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-	-webkit-transform: translateX(20px);
-	   -moz-transform: translateX(20px);
-	    -ms-transform: translateX(20px);
-	     -o-transform: translateX(20px);
-	        transform: translateX(20px);
-	span{
-		-webkit-box-flex: 2;
-		-webkit-flex: 2;
-		   -moz-box-flex: 2;
-		    -ms-flex: 2;
-		        flex: 2;
-		border: 1px solid black;
-	}
-}
-h1{
-	background: yellow;
-}
-.box2{
-	background: url(../img/kebi.2abd000d.jpg);
-}
-.box{width:200px;height:30px;border:1px solid #000}.box span{color:#fff}
+.box{background:url(../img/kebi.2abd000d.jpg);width:800px;margin:0 auto;text-align:center}.box span{color:#fff}.box img{width:200px;height:200px}
 @font-face {
   font-family: 'icomoon';
   src:  url(../fonts/icomoon.e21b1be5.eot);
@@ -101,6 +70,4 @@ h1{
 }
 .icon-tablet:before {
   content: "\F10A";
-}.heyushuo{
-	background: url(../img/kebi.2abd000d.jpg);
 }

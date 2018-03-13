@@ -47,7 +47,7 @@ module.exports = {
 				use:{
 					loader:'url-loader',
 					options: {
-						limit: 8192,  //限制大小10k
+						limit: 10000,  //限制大小10k
 					}
 				}
 			},

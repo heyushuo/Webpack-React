@@ -9,7 +9,7 @@ module.exports = {
     	index:path.resolve(__dirname, 'src/index.jsx'),
     	// 将 第三方依赖（node_modules中的） 单独打包 pkg或获取到package.json文件中的第三方依赖库Object.keys()
     	//Object.keys 返回一个所有元素为字符串的数组，其元素来自于从给定的对象上面可直接枚举的属性。这些属性的顺序与手动遍历该对象属性时的一致。
-    	vendor: Object.keys(pkg.dependencies)
+    	vendor: Object.keys(pkg.dependencies) ////插件中name,filename必须以这个key为值
     },
     output: {
 	    path: path.resolve(__dirname, 'dist'),    //打包后文件的输出路径
@@ -48,7 +48,7 @@ module.exports = {
 			           fallback: "style-loader",
 			           publicPath:'../',
 			           use: [
-			           	 {loader: 'css-loader',options: {importLoaders: 1}},
+			           	 {loader: 'css-loader',options: {importLoaders: 1,minimize:true}},
 			         	 {loader: 'postcss-loader',options:{ident:"postcss",plugins:[require("autoprefixer")("last 100 versions")]}}
 			           ]
 			        })
@@ -107,12 +107,11 @@ module.exports = {
     	//提取css文件
     	new ExtractTextPlugin({
     		filename:'css/[name].[contenthash:8].css',
-//          disable:false,
-//          allChunks:true
     	}),
     	// 提供第三方依赖的代码
 	    new webpack.optimize.CommonsChunkPlugin({
 	      name: 'vendor',
+//	      filename:"chunk.js"//忽略则以name为输出文件的名字，否则以此为输出文件名字
 	    })
     	
     ]
