@@ -8,10 +8,12 @@ module.exports = {
     	path: path.resolve(__dirname, 'dist'),//打包后文件的输出路径
     	filename: 'bundle.js',//输出文件名字
   	},
+  	devtool: 'eval-source-map',//开发环境使用，有利于看自己程序打印具体在那个组件里
   	 devServer:{
 //      contentBase:'./dist',  contentBase可以不用指定 因为用了这个HtmlWebpackPlugin插件
         historyApiFallback: true, //不跳转，在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，任意的 404 响应都可能需要被替代为 index.html
         inline: true, //实时刷新
+        host: "192.168.8.100",
         proxy:{//代理属性
             "/api":{
                 target:'http://localhost:9000/',
